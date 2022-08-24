@@ -20,7 +20,14 @@ public class Hunger : MonoBehaviour
 
     private void Update()
     {
-        currentHunger = player.curHunger;
-        hungerBar.fillAmount = currentHunger / maxHunger;
+        if (player == null)
+        {
+            player = FindObjectOfType<Player>();
+        } else
+        {
+            currentHunger = player.curHunger;
+            hungerBar.fillAmount = currentHunger / maxHunger;
+        }
+
     }
 }

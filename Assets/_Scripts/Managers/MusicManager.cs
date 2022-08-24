@@ -27,8 +27,6 @@ public class MusicManager : MonoBehaviour
             volumeSlider.value = handler.getVolume();
         } else
         {
-            Debug.Log("not menu");
-            Debug.Log(handler.getVolume());
             setVolume(handler.getVolume());
         }
 
@@ -53,15 +51,12 @@ public class MusicManager : MonoBehaviour
 
     public void saveVolume()
     {
-        Debug.Log(volumeSlider.value);
-
         Setting newSetting = new Setting()
         {
             volume = volumeSlider.value
         };
 
         handler.OutputJSON(newSetting);
-
     }
 
 

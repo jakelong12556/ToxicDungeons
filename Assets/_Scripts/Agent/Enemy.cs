@@ -156,7 +156,6 @@ public class Enemy : MonoBehaviour
 	void Die ()
 	{
 		AgentGenerator.manager.totalEnemies = AgentGenerator.manager.totalEnemies - 1;
-		Debug.Log(AgentGenerator.manager.totalEnemies);
 
 		if (AgentGenerator.manager.totalEnemies == 0)
 		{

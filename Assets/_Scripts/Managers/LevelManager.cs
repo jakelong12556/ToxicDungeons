@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         levelManager = this;
-        currentLevel = 3;
+        currentLevel = 1;
         StartCoroutine(Notification("Level " + currentLevel, 2f, LevelSelector, null));
     }
 

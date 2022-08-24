@@ -35,7 +35,6 @@ public class MapGenerator : AbstractMapGenerator
 
         visualizer.VisFloorTiles(floorPos);
         WallGenerator.GenerateWall(floorPos, visualizer);
-        Debug.Log(agents.getTotalEnemies());
 
     }
 

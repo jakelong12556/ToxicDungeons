@@ -20,8 +20,15 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        currentHealth = player.curHealth;
-        healthBar.fillAmount = currentHealth / maxHealth;
+        if(player == null)
+        {
+            player = FindObjectOfType<Player>();
+        } else
+        {
+            currentHealth = player.curHealth;
+            healthBar.fillAmount = currentHealth / maxHealth;
+        }
+
     }
 
 

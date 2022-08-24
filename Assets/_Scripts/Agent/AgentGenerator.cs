@@ -38,11 +38,11 @@ public class AgentGenerator : MonoBehaviour
 
 
     [Range(0.0f, 1.0f)]
-    protected float enemy1Probability = 0.4f;
+    protected float enemy1Probability = 0.5f;
 
 
     [Range(0.0f, 1.0f)]
-    protected float enemy2Probability = 0.4f;
+    protected float enemy2Probability = 0.5f;
 
 
     [Range(0.0f, 1.0f)]
@@ -76,7 +76,6 @@ public class AgentGenerator : MonoBehaviour
 
     internal void GenerateEnemies(Vector2 roomCenter, HashSet<Vector2Int> floorPos)
     {
-        Debug.Log(maxEnemies);
         for (int i = 0; i < maxEnemies; i++)
         {
             var currentTile = new Vector2Int(0,0);
@@ -125,7 +124,6 @@ public class AgentGenerator : MonoBehaviour
     //Takes in dur, amount and intensity to create a camera shake.
     public void Shake(float duration, float amount, float intensity)
     {
-        Debug.Log("shaking");
         StartCoroutine(ShakeCam(duration, amount, intensity));
     }
 

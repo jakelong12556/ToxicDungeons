@@ -5,17 +5,22 @@ using System.IO;
 
 public class JSONHandler : MonoBehaviour
 {
-    public TextAsset textJSON;
-
     private Setting mySetting;
 
     void Start()
     {
-        mySetting = JsonUtility.FromJson<Setting>(textJSON.text);
-        //mySetting = new Setting
-        //{
-        //    volume = 0.5f
-        //};
+        readJSON();
+    }
+
+    //Used to read and update json after new settings
+    public void readJSON()
+    {
+        if (System.IO.File.Exists(Application.dataPath + "/settings.txt"))
+        {
+            var file = File.ReadAllLines(Application.dataPath + "/settings.txt");
+            var fileWord = new List<string>(file);
+            mySetting = JsonUtility.FromJson<Setting>(fileWord[0]);
+        }
     }
     public void OutputJSON(Setting newSetting)
     {
@@ -23,6 +28,7 @@ public class JSONHandler : MonoBehaviour
         string strOut = JsonUtility.ToJson(newSetting);
 
         File.WriteAllText(Application.dataPath + "/settings.txt", strOut);
+        readJSON();
     }
 
     public float getVolume()
